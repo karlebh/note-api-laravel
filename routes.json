@@ -1,0 +1,72 @@
+[
+    {
+        "domain": null,
+        "method": "POST",
+        "uri": "api/login",
+        "name": null,
+        "action": "App\\Http\\Controllers\\Auth\\LoginUserController@store",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\RedirectIfAuthenticated:api"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "POST",
+        "uri": "api/logout",
+        "name": null,
+        "action": "App\\Http\\Controllers\\Auth\\LoginUserController@destroy",
+        "middleware": ["api", "App\\Http\\Middleware\\Authenticate:api"]
+    },
+    {
+        "domain": null,
+        "method": "POST",
+        "uri": "api/register",
+        "name": null,
+        "action": "App\\Http\\Controllers\\Auth\\RegisterUserController@store",
+        "middleware": [
+            "api",
+            "App\\Http\\Middleware\\RedirectIfAuthenticated:api"
+        ]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api/user",
+        "name": "user.index",
+        "action": "App\\Http\\Controllers\\UserController@index",
+        "middleware": ["api", "App\\Http\\Middleware\\Authenticate:api"]
+    },
+    {
+        "domain": null,
+        "method": "POST",
+        "uri": "api/user",
+        "name": "user.store",
+        "action": "App\\Http\\Controllers\\UserController@store",
+        "middleware": ["api", "App\\Http\\Middleware\\Authenticate:api"]
+    },
+    {
+        "domain": null,
+        "method": "GET|HEAD",
+        "uri": "api/user/{user}",
+        "name": "user.show",
+        "action": "App\\Http\\Controllers\\UserController@show",
+        "middleware": ["api", "App\\Http\\Middleware\\Authenticate:api"]
+    },
+    {
+        "domain": null,
+        "method": "PUT|PATCH",
+        "uri": "api/user/{user}",
+        "name": "user.update",
+        "action": "App\\Http\\Controllers\\UserController@update",
+        "middleware": ["api", "App\\Http\\Middleware\\Authenticate:api"]
+    },
+    {
+        "domain": null,
+        "method": "DELETE",
+        "uri": "api/user/{user}",
+        "name": "user.destroy",
+        "action": "App\\Http\\Controllers\\UserController@destroy",
+        "middleware": ["api", "App\\Http\\Middleware\\Authenticate:api"]
+    }
+]
