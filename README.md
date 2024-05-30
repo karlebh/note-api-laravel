@@ -1,4 +1,4 @@
--   User Management Docs
+-   Note API Laravel Docs
 
 1. Open terminal
 2. Run `git clone https://github.com/karlebh/api-laravel.git`
@@ -11,90 +11,29 @@
 
 -   Test Runing
 
-1. Run `php artisan test` to run the test.
+- How To Use The API
 
-```xml
-<!-- <env name="DB_CONNECTION" value="sqlite"/> -->
-<!-- <env name="DB_DATABASE" value=":memory:"/> -->
-```
+1. Registration: `api/register` .
 
-You can uncomment those two lines in `phpunit.xml` to run the test on an sqlite databse, different from the application's database.
+It takes 4 parameters: `name`, `email`, `password`, `password_confirmation`
 
--   API Routes
+2. Login: `api/login`
 
-```json
-[
-    {
-        "domain": null,
-        "method": "POST",
-        "uri": "api/login",
-        "name": null,
-        "action": "App\\Http\\Controllers\\Auth\\LoginUserController@store",
-        "middleware": [
-            "api",
-            "App\\Http\\Middleware\\RedirectIfAuthenticated:api"
-        ]
-    },
-    {
-        "domain": null,
-        "method": "POST",
-        "uri": "api/logout",
-        "name": null,
-        "action": "App\\Http\\Controllers\\Auth\\LoginUserController@destroy",
-        "middleware": ["api", "App\\Http\\Middleware\\Authenticate:api"]
-    },
-    {
-        "domain": null,
-        "method": "POST",
-        "uri": "api/register",
-        "name": null,
-        "action": "App\\Http\\Controllers\\Auth\\RegisterUserController@store",
-        "middleware": [
-            "api",
-            "App\\Http\\Middleware\\RedirectIfAuthenticated:api"
-        ]
-    },
-    {
-        "domain": null,
-        "method": "GET|HEAD",
-        "uri": "api/user",
-        "name": "user.index",
-        "action": "App\\Http\\Controllers\\UserController@index",
-        "middleware": ["api", "App\\Http\\Middleware\\Authenticate:api"]
-    },
-    {
-        "domain": null,
-        "method": "POST",
-        "uri": "api/user",
-        "name": "user.store",
-        "action": "App\\Http\\Controllers\\UserController@store",
-        "middleware": ["api", "App\\Http\\Middleware\\Authenticate:api"]
-    },
-    {
-        "domain": null,
-        "method": "GET|HEAD",
-        "uri": "api/user/{user}",
-        "name": "user.show",
-        "action": "App\\Http\\Controllers\\UserController@show",
-        "middleware": ["api", "App\\Http\\Middleware\\Authenticate:api"]
-    },
-    {
-        "domain": null,
-        "method": "PUT|PATCH",
-        "uri": "api/user/{user}",
-        "name": "user.update",
-        "action": "App\\Http\\Controllers\\UserController@update",
-        "middleware": ["api", "App\\Http\\Middleware\\Authenticate:api"]
-    },
-    {
-        "domain": null,
-        "method": "DELETE",
-        "uri": "api/user/{user}",
-        "name": "user.destroy",
-        "action": "App\\Http\\Controllers\\UserController@destroy",
-        "middleware": ["api", "App\\Http\\Middleware\\Authenticate:api"]
-    }
-]
-```
+It take 2 parameters: `email`, `password`
 
-`\api\login` requires `email` and `password`. `\api\register` requires `name`, `password`, `email`, `password` and `password_confirmation`.
+3. Logout: `api/logout`
+
+4. Create Note: `api/note/store` - `POST`. It requires authentication token
+
+It takes 2 paramaters: `title`, `body`
+
+5. Create Note: `api/note/{note-id}` - `PATCH`. It requires authentication token
+
+It takes 2 optional parameters: `title`, `body`
+
+6. Delete Note: `api/note/store` - `DELETE`. It requires authentication token
+
+7. Get a Single Note: `api/note/{note-id}` - `GET`. 
+
+8. Get All Notes: `api/notes` - `GET`.
+
