@@ -9,7 +9,6 @@
 7. Copy the database name to your .env file like so `DB_DATABASE=api_laravel`. Then the username and password can be left like so `DB_USERNAME=root`, `DB_PASSWORD=`.
 8. Run `php artisan api:prepare`. This is an artisan command that prepares your app by running the migration, seeding the database and starting the server.
 
--   Test Runing
 
 - How To Use The API
 
